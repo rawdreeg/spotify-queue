@@ -51,6 +51,10 @@
                 <CopyButton :value="href" text="Copy sharable link"/>
               </div>
 
+              <div class="qr-code-link">
+                <qrcode-vue class="qrcode" :value="href" renderAs="svg" size="300" level="L" background="#000000" foreground="#1f8b99"/>
+
+              </div>
 
               <div class="spacing">
                 <div class="items">
@@ -88,6 +92,7 @@ import Tracks from './components/Tracks'
 import Search from './components/Search'
 import CopyButton from './components/CopyButton'
 import Home from './components/Home'
+import QrcodeVue from 'qrcode.vue'
 
 import store from './store'
 
@@ -105,6 +110,7 @@ export default {
     Search,
     CopyButton,
     Home,
+    QrcodeVue
   },
   data() {
     return {
@@ -300,5 +306,14 @@ export default {
   #app {
     font-size: 0.8em;
   }
+}
+
+.qr-code-link {
+    margin: 20px 0;
+}
+
+.qr-code-link > div {
+    display: block;
+    /* margin: 0 auto; */
 }
 </style>
